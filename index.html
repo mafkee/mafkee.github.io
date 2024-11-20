@@ -1,10 +1,84 @@
-<div style="text-align: center; background: linear-gradient(to bottom, #000000, #434343); padding: 20px; border-radius: 10px; width: 300px; margin: 0 auto;">
-    <a href="/SubwaySF/" style="color: white; display: block; margin: 10px 0; text-decoration: none;">Subway Surfers: San Francisco</a>
-    <a href="/SubwaySP/" style="color: white; display: block; margin: 10px 0; text-decoration: none;">Subway Surfers: Saint Petersburg</a>
-    <a href="/FruitNinjaClassic/" style="color: white; display: block; margin: 10px 0; text-decoration: none;">Fruit Ninja Classic (2D)</a>
-    <a href="/FruitNinja/" style="color: white; display: block; margin: 10px 0; text-decoration: none;">Fruit Ninja</a>
-    <a href="/CutTheRope/" style="color: white; display: block; margin: 10px 0; text-decoration: none;">Cut The Rope</a>
-    <a href="/JetpackJoyride/" style="color: white; display: block; margin: 10px 0; text-decoration: none;">Jetpack Joyride</a>
-    <a href="/Eag1.8.html" style="color: white; display: block; margin: 10px 0; text-decoration: none;">Eaglercraft</a>
-    <a href="/WAD" style="color: white; display: block; margin: 10px 0; text-decoration: none;">WADs (doom data)</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Navigation</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global body styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #111;
+            color: white;
+        }
+
+        /* Moving background effect */
+        @keyframes moveBackground {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* Apply the moving background to the page */
+        header {
+            background: linear-gradient(45deg, #000000, #434343);
+            background-size: 200% 200%;
+            animation: moveBackground 10s ease infinite;
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Navigation container */
+        .nav-container {
+            background: linear-gradient(to bottom, #000000, #434343);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 20px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Navigation links */
+        .nav-container a {
+            color: white;
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Hover effect for links */
+        .nav-container a:hover {
+            background-color: #555;
+            color: #FFD700;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>wafkee</h1>
+    <p>YOW!!!  game</p>
+ <p>revamp to this thingy soon -SC </p>  </header>
+
+<div class="nav-container">
+    <a href="/SubwaySF/">Subway Surfers: San Francisco</a>
+    <a href="/SubwaySP/">Subway Surfers: Saint Petersburg</a>
+    <a href="/FruitNinjaClassic/">Fruit Ninja Classic (2D)</a>
+    <a href="/FruitNinja/">Fruit Ninja</a>
+    <a href="/CutTheRope/">Cut The Rope</a>
+    <a href="/JetpackJoyride/">Jetpack Joyride</a>
+    <a href="/Eag1.8.html">Eaglercraft</a>
+    
 </div>
+
+</body>
+</html>
