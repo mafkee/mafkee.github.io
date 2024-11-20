@@ -20,14 +20,14 @@
         /* Moving background effect */
         @keyframes moveBackground {
             0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
+            100% { background-position: 100% 0%; }
         }
 
         /* Apply the moving background to the page */
         header {
             background: linear-gradient(45deg, #000000, #434343);
-            background-size: 200% 200%;
-            animation: moveBackground 10s ease infinite;
+            background-size: 200% 100%;
+            animation: moveBackground 10s linear infinite;
             padding: 60px 0;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
