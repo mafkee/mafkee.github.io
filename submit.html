@@ -36,27 +36,35 @@
     <iframe id="gameFrame" 
             src="https://marbleblastultra.randomityguy.me/" 
             sandbox="allow-scripts allow-same-origin allow-pointer-lock" 
-            scrolling="yes" 
+            scrolling="no" 
             frameborder="0"></iframe>
     <!-- End Emulation -->
 
     <script>
-        // Listen for when the iframe's content requests pointer lock
         var iframe = document.getElementById('gameFrame');
 
         iframe.onload = function() {
-            // Ensure the iframe is focused and listen for mouse click inside the iframe to request pointer lock
+            try {
+                // Attempt to request pointer lock automatically on iframe load
+                iframe.contentWindow.document.body.requestPointerLock();
+            } catch (e) {
+                console.error('Pointer Lock request failed:', e);
+            }
+
+            // Automatically keep the iframe focused
             iframe.contentWindow.document.body.addEventListener('click', function() {
                 try {
                     iframe.contentWindow.document.body.requestPointerLock();
                 } catch (e) {
-                    console.error('Pointer Lock request failed:', e);
+                    console.error('Pointer Lock request failed after click:', e);
                 }
             });
-            iframe.focus();  // Ensure the iframe is focused when loaded
+
+            // Ensure iframe is focused when loaded
+            iframe.focus(); 
         };
 
-        // Listen for pointer lock change events on the document to detect lock/unlock state
+        // Listen for pointer lock changes on the document
         document.addEventListener('pointerlockchange', function() {
             if (document.pointerLockElement === iframe.contentWindow.document.body) {
                 console.log('Pointer lock activated');
@@ -65,7 +73,7 @@
             }
         });
 
-        // Optional: Automatically handle pointer lock release on ESC key press
+        // Automatically release pointer lock on ESC key press
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 document.exitPointerLock();
