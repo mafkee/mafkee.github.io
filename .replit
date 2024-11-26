@@ -1,5 +1,6 @@
 hidden=[".config"]
 modules = ["nodejs-20", "web"]
+run = ["echo", "Hello, Replit!"]
 
 [nix]
 channel = "stable-24_05"
