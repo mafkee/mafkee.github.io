@@ -5,22 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Geometry Dash Lite</title>
 
-  
-       <script language="JavaScript" type="text/javascript">
-           // Prevent any redirection attempt by intercepting unload/close events
-           window.onbeforeunload = function (event) {
-               // Show a confirmation dialog when the user tries to leave the page
-               const message = "Please click cancel, this is becauses of geo lites anti copy system.";
-               event.returnValue = message; // Standard for most browsers
-               return message; // For older browsers
-           };
+<script language="JavaScript" type="text/javascript">
+    // Prevent any redirection attempt by showing a confirmation dialog
+    window.onbeforeunload = function (event) {
+        // Custom message that appears in the browser's leave page confirmation
+        const message = "click cancel";
+        event.returnValue = message; // Standard for most browsers
+        return message; // For older browsers
+    };
 
-           // Prevent redirection attempts (e.g., via links or JavaScript)
-           window.location.href = window.location.href; // Keeping the current URL
-           window.history.pushState(null, null, window.location.href); // Prevent the browser from changing history
-       </script>
-    
-
+    // Fix the issue of title changing (potentially from JS or browser behavior)
+    document.title = "Geometry Dash Lite"; // Reset title to your desired title
+</script>
 
 <style>
         html {
@@ -56,9 +52,9 @@
             position: absolute;
             top: 40%;
             left: 50%;
-			max-width: 800px;
-			width: 100%; 
-             transform: translate(-50%,-50%);
+            max-width: 800px;
+            width: 100%; 
+            transform: translate(-50%,-50%);
             z-index: 10;
             object-fit: cover;
             object-position: bottom;
@@ -149,47 +145,47 @@
                 transform: rotate(360deg);
             }
         }
-		.logo_container{
-           position: absolute;
-    background-image: url(BG.png);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+
+        .logo_container {
+            position: absolute;
+            background-image: url(BG.png);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
-    </style>
+</style>
 </head>
+
 <body>
 <div id="gameContainer"></div>
+
 <div id="loader">
-<div class="logo_container">
-<img class="logo" src="logo-text.png">
+    <div class="logo_container">
+        <img class="logo" src="logo-text.png">
+    </div>
+    <div class="spinner"></div>
+    <div class="progress">
+        <div class="progress_border_parent">
+            <img class="progress_border_img" src="./slider.png">
+        </div>
+        <div class="progress_child">
+            <div class="full"></div>
+        </div>
+    </div>
 </div>
-<div class="spinner"></div>
-<div class="progress">
-<div class="progress_border_parent">
-<img class="progress_border_img" src="./slider.png">
-</div>
-<div class="progress_child">
-<div class="full"></div>
-</div>
-</div>
-</div>
-</body>
+
 <script src="Build/UnityLoader.js"></script>
 <script>
     UnityLoader.compatibilityCheck = function (e, t, r) {
         t();
     };
+
     var gameInstance = UnityLoader.instantiate("gameContainer", "Build/geometrylite.json", {onProgress: UnityProgress});
 
     function UnityProgress(gameInstance, progress) {
-        //if (!gameInstance.Module) {
-        //return;
-        //}
-
         const loader = document.querySelector("#loader");
         let percent_progress = progress * 100;
         if (!gameInstance.progress) {
@@ -197,7 +193,6 @@
             progress.style.display = "block";
             gameInstance.progress = progress.querySelector(".full");
             loader.querySelector(".spinner").style.display = "none";
-
         }
 
         gameInstance.progress.style.width = `${percent_progress}%`;
@@ -208,4 +203,5 @@
         }
     }
 </script>
+</body>
 </html>
