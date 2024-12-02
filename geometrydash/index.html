@@ -6,8 +6,13 @@
 <title>Geometry Dash Lite</title>
 <script language="JavaScript" type="text/javascript">
   
-        window.onbeforeunload = function(){
-            console.log("Prevented redirection!!!!!");
+        window.onbeforeunload = function(event) {
+            // Display the confirmation message to the user before leaving the page
+            const message = "Are you sure you want to leave this page? Any unsaved progress may be lost.";
+
+            // For most browsers, you need to return the message or set it to event.returnValue
+            event.returnValue = message; // This triggers the browser's confirmation dialog
+            return message; // For some older browsers
         };
     
 </script>
