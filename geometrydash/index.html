@@ -5,157 +5,144 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Geometry Dash Lite</title>
 
-<script language="JavaScript" type="text/javascript">
-    // Prevent any redirection attempt by showing a confirmation dialog
-    window.onbeforeunload = function (event) {
-        // Custom message that appears in the browser's leave page confirmation
-        const message = "click cancel";
-        event.returnValue = message; // Standard for most browsers
-        return message; // For older browsers
-    };
-
-    // Fix the issue of title changing (potentially from JS or browser behavior)
-    document.title = "Geometry Dash Lite"; // Reset title to your desired title
-</script>
-
 <style>
-        html {
-            box-sizing: border-box;
-        }
+    html {
+        box-sizing: border-box;
+    }
 
-        *, *:before, *:after {
-            box-sizing: inherit;
-        }
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
 
-        body {
-            margin: 0;
-            background: #444;
-        }
+    body {
+        margin: 0;
+        background: #444;
+    }
 
-        #gameContainer {
-            width: 100vw;
-            height: 100vh;
-        }
+    #gameContainer {
+        width: 100vw;
+        height: 100vh;
+    }
 
-        canvas {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
+    canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
 
-        /* try to handle mobile dialog */
-        canvas + * {
-            z-index: 2;
-        }
+    /* try to handle mobile dialog */
+    canvas + * {
+        z-index: 2;
+    }
 
-        .logo {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            max-width: 800px;
-            width: 100%; 
-            transform: translate(-50%,-50%);
-            z-index: 10;
-            object-fit: cover;
-            object-position: bottom;
-        }
+    .logo {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        max-width: 800px;
+        width: 100%; 
+        transform: translate(-50%,-50%);
+        z-index: 10;
+        object-fit: cover;
+        object-position: bottom;
+    }
 
-        .progress {
-            margin: 1.5em;
-            width: 420px;
-            height: 32px;
-            display: none;
-            position: absolute;
-            z-index: 100;
-            background-image: url(./slider.png);
-            bottom: 85px;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 35px;
-            overflow: hidden;
-        }
+    .progress {
+        margin: 1.5em;
+        width: 420px;
+        height: 32px;
+        display: none;
+        position: absolute;
+        z-index: 100;
+        background-image: url(./slider.png);
+        bottom: 85px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 35px;
+        overflow: hidden;
+    }
 
-        .progress .full {
-            height: 16px;
-            background-image: url(./sliderBar.png);
-            background-repeat-y: no-repeat;
-            top: 50%;
-        }
+    .progress .full {
+        height: 16px;
+        background-image: url(./sliderBar.png);
+        background-repeat-y: no-repeat;
+        top: 50%;
+    }
 
-        .progress_border_parent {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 22;
-        }
+    .progress_border_parent {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 22;
+    }
 
-        .progress_child {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            width: 100%;
-            height: 100%;
-            border-radius: 32px;
-            overflow: hidden;
-            padding: 0 5px;
-            z-index: 1;
-        }
+    .progress_child {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        width: 100%;
+        height: 100%;
+        border-radius: 32px;
+        overflow: hidden;
+        padding: 0 5px;
+        z-index: 1;
+    }
 
-        #loader {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: black;
-        }
+    #loader {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+    }
 
-        .spinner,
-        .spinner:after {
-            border-radius: 50%;
-            width: 5em;
-            height: 5em;
-        }
+    .spinner,
+    .spinner:after {
+        border-radius: 50%;
+        width: 5em;
+        height: 5em;
+    }
 
-        .spinner {
-            margin: 10px;
-            font-size: 10px;
-            position: relative;
-            text-indent: -9999em;
-            border-top: 1.1em solid rgba(255, 255, 255, 0.2);
-            border-right: 1.1em solid rgba(255, 255, 255, 0.2);
-            border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
-            border-left: 1.1em solid #ffffff;
-            transform: translateZ(0);
-            animation: spinner-spin 1.1s infinite linear;
-        }
+    .spinner {
+        margin: 10px;
+        font-size: 10px;
+        position: relative;
+        text-indent: -9999em;
+        border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-left: 1.1em solid #ffffff;
+        transform: translateZ(0);
+        animation: spinner-spin 1.1s infinite linear;
+    }
 
-        @keyframes spinner-spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+    @keyframes spinner-spin {
+        0% {
+            transform: rotate(0deg);
         }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 
-        .logo_container {
-            position: absolute;
-            background-image: url(BG.png);
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
+    .logo_container {
+        position: absolute;
+        background-image: url(BG.png);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 </style>
 </head>
 
@@ -202,6 +189,15 @@
             }, 2000);
         }
     }
+
+    // Prevent redirects or reloads by showing a confirmation dialog
+    window.onbeforeunload = function (event) {
+        // Customize the message shown to the user
+        const message = "Click cancel.";
+        event.returnValue = message;  // Standard for most browsers
+        return message;  // Some browsers use this for compatibility
+    };
 </script>
+
 </body>
 </html>
