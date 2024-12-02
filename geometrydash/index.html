@@ -4,13 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Geometry Dash Lite</title>
-<script language="JavaScript" type="text/javascript">
+
   
-        window.onbeforeunload = function(){
-            console.log("Prevented redirection");
-        };
+       <script language="JavaScript" type="text/javascript">
+           // Prevent any redirection attempt by intercepting unload/close events
+           window.onbeforeunload = function (event) {
+               // Show a confirmation dialog when the user tries to leave the page
+               const message = "Please click cancel, this is becauses of geo lites anti copy system.";
+               event.returnValue = message; // Standard for most browsers
+               return message; // For older browsers
+           };
+
+           // Prevent redirection attempts (e.g., via links or JavaScript)
+           window.location.href = window.location.href; // Keeping the current URL
+           window.history.pushState(null, null, window.location.href); // Prevent the browser from changing history
+       </script>
     
-</script>
+
 
 <style>
         html {
