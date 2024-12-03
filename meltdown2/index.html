@@ -144,7 +144,7 @@
         }
         .logo_container{
            position: absolute;
-    background-image: url(logo.png);
+    background-image: url(png);
     width: 100%;
     height: 100%;
     top: 0;
@@ -158,7 +158,7 @@
 <div id="gameContainer"></div>
 <div id="loader">
 <div class="logo_container">
-<img class="logo" src="png">
+<img class="logo" src="loading.png">
 </div>
 <div class="spinner"></div>
 <div class="progress">
@@ -176,7 +176,7 @@
     UnityLoader.compatibilityCheck = function (e, t, r) {
         t();
     };
-    var gameInstance = UnityLoader.instantiate("gameContainer", "Build/GeometryDashLife.json", {onProgress: UnityProgress});
+    var gameInstance = UnityLoader.instantiate("gameContainer", "Build/GeometryDash_MeltDown.json", {onProgress: UnityProgress});
 
     function UnityProgress(gameInstance, progress) {
         //if (!gameInstance.Module) {
