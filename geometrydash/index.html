@@ -7,15 +7,12 @@
     
 <script language="JavaScript" type="text/javascript">
 
-        window.onbeforeunload = function(event) {
-            // Display the confirmation message to the user before leaving the page
-            const message = "Are you sure you want to leave this page? Any unsaved progress may be lost.";
-
-            // For most browsers, you need to return the message or set it to event.returnValue
-            event.returnValue = message; // This triggers the browser's confirmation dialog
-            return message; // For some older browsers
-        };
-
+      <script>
+      window.onbeforeunload = function(event) {
+        event.returnValue = "Click cancel, This is due to geometry lites anti-copy measures.";
+      };
+      </script>
+    
 </script>
 
 <style>
@@ -161,7 +158,7 @@
 <div id="gameContainer"></div>
 <div id="loader">
 <div class="logo_container">
-<img class="logo" src="logo.png">
+<img class="logo" src="png">
 </div>
 <div class="spinner"></div>
 <div class="progress">
