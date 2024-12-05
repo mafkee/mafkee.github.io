@@ -7,32 +7,10 @@
 
 <script language="JavaScript" type="text/javascript">
 
-// Flag to track if the game is loading
-let gameIsLoading = true;
-
 // Add global onbeforeunload handler
 window.onbeforeunload = function(event) {
-  if (gameIsLoading) {
-    event.returnValue = "Click cancel. This is due to Geometry Dash Lite's anti-copy measures.";
-  }
+  event.returnValue = "Click cancel. This is due to Geometry Dash Lite's anti-copy measures.";
 };
-
-// Prevent redirects by overriding location.href and location.replace
-Object.defineProperty(window, "location", {
-  value: new Proxy(window.location, {
-    set: function(target, prop, value) {
-      if (prop === 'href' || prop === 'assign' || prop === 'replace') {
-        // Prevent redirection if the game is loading
-        if (gameIsLoading) {
-          console.log("Redirect attempt blocked!");
-          return true;  // Prevent any changes
-        }
-      }
-      target[prop] = value;
-      return true;
-    }
-  })
-});
 
 </script>
 
@@ -220,16 +198,13 @@ Object.defineProperty(window, "location", {
         if (progress === 1 && !gameInstance.removeTimeout) {
             gameInstance.removeTimeout = setTimeout(function () {
                 loader.style.display = "none";
-                gameIsLoading = false;  // Set the game as loaded, allowing redirects again
             }, 2000);
         }
     }
 
     // Reapply onbeforeunload in case Unity game reinitializes the page
     window.onbeforeunload = function(event) {
-        if (gameIsLoading) {
-            event.returnValue = "Click cancel. This is due to Geometry Dash Lite's anti-copy measures.";
-        }
+        event.returnValue = "Click cancel. This is due to Geometry Dash Lite's anti-copy measures.";
     };
 </script>
 </body>
