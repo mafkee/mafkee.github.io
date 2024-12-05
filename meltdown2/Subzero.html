@@ -3,14 +3,77 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Geometry Dash Lite</title>
+<title>Geometry Dash Subzero</title>
 
 <script language="JavaScript" type="text/javascript">
 
-// Add global onbeforeunload handler
+// Variable to control game loading
+let gameStarted = false;
+
+// Block any redirects or page reload after the game starts
 window.onbeforeunload = function(event) {
-  event.returnValue = "Click cancel. This is due to Geometry Dash Lite's anti-copy measures.";
+  if (gameStarted) {
+    event.returnValue = "The game has started. Are you sure you want to leave?";
+  }
 };
+
+// Show placeholder warning with accept button before game starts loading
+function showWarning() {
+  const warningContainer = document.createElement('div');
+  warningContainer.style.position = 'fixed';
+  warningContainer.style.top = '0';
+  warningContainer.style.left = '0';
+  warningContainer.style.width = '100vw';
+  warningContainer.style.height = '100vh';
+  warningContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+  warningContainer.style.display = 'flex';
+  warningContainer.style.alignItems = 'center';
+  warningContainer.style.justifyContent = 'center';
+  warningContainer.style.color = 'white';
+  warningContainer.style.fontSize = '24px';
+  warningContainer.style.zIndex = '1000';
+  warningContainer.innerHTML = `
+    <div>
+      <p>hi hello spam esc while the game is almost finished loading !!! thank you :3</p>
+      <p>ps: Downlaod     Gaagoametry dash Free 2012,  2013       MEdiafire</p>
+      <button onclick="startGame()">Accept</button>
+    </div>
+  `;
+  document.body.appendChild(warningContainer);
+}
+
+// Start the game when the accept button is clicked
+function startGame() {
+  gameStarted = true;
+  document.querySelector('#loader').style.display = 'block'; // Show the loader
+  document.body.querySelector('div').remove(); // Remove the placeholder warning
+  gameInstance = UnityLoader.instantiate("gameContainer", "subzero/geometrydash-subzero.json", {onProgress: UnityProgress});
+}
+
+// Function to handle Unity loading progress
+function UnityProgress(gameInstance, progress) {
+    if (!gameInstance.Module) {
+        return;
+    }
+
+    const loader = document.querySelector("#loader");
+    let percent_progress = progress * 100;
+
+    if (!gameInstance.progress) {
+        const progress = document.querySelector("#loader .progress");
+        progress.style.display = "block";
+        gameInstance.progress = progress.querySelector(".full");
+        loader.querySelector(".spinner").style.display = "none";
+    }
+
+    gameInstance.progress.style.width = `${percent_progress}%`;
+
+    if (progress === 1 && !gameInstance.removeTimeout) {
+        gameInstance.removeTimeout = setTimeout(function () {
+            loader.style.display = "none";
+        }, 2000);
+    }
+}
 
 </script>
 
@@ -153,12 +216,13 @@ window.onbeforeunload = function(event) {
         bottom: 0;
     }
 </style>
+
 </head>
-<body>
+<body onload="showWarning()">
 <div id="gameContainer"></div>
-<div id="loader">
+<div id="loader" style="display:none;">
     <div class="logo_container">
-        <img class="logo" src="slopelogo.png">
+        <img class="logo" src="untitled.png">
     </div>
     <div class="spinner"></div>
     <div class="progress">
@@ -171,41 +235,5 @@ window.onbeforeunload = function(event) {
     </div>
 </div>
 <script src="Build/UnityLoader.js"></script>
-<script>
-    UnityLoader.compatibilityCheck = function (e, t, r) {
-        t();
-    };
-
-    var gameInstance = UnityLoader.instantiate("gameContainer", "subzero/geometrydash-subzero.json", {onProgress: UnityProgress});
-
-    function UnityProgress(gameInstance, progress) {
-        if (!gameInstance.Module) {
-            return;
-        }
-
-        const loader = document.querySelector("#loader");
-        let percent_progress = progress * 100;
-
-        if (!gameInstance.progress) {
-            const progress = document.querySelector("#loader .progress");
-            progress.style.display = "block";
-            gameInstance.progress = progress.querySelector(".full");
-            loader.querySelector(".spinner").style.display = "none";
-        }
-
-        gameInstance.progress.style.width = `${percent_progress}%`;
-
-        if (progress === 1 && !gameInstance.removeTimeout) {
-            gameInstance.removeTimeout = setTimeout(function () {
-                loader.style.display = "none";
-            }, 2000);
-        }
-    }
-
-    // Reapply onbeforeunload in case Unity game reinitializes the page
-    window.onbeforeunload = function(event) {
-        event.returnValue = "Click cancel. This is due to Geometry Dash Lite's anti-copy measures.";
-    };
-</script>
 </body>
 </html>
