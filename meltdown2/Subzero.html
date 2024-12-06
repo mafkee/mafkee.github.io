@@ -170,13 +170,13 @@ window.onbeforeunload = function(event) {
         </div>
     </div>
 </div>
-<script src="Build/UnityLoader.js"></script>
+<script src="subzerobuild/"></script>
 <script>
     UnityLoader.compatibilityCheck = function (e, t, r) {
         t();
     };
 
-    var gameInstance = UnityLoader.instantiate("gameContainer", "subzero/geometrydash-subzero.json", {onProgress: UnityProgress});
+    var gameInstance = UnityLoader.instantiate("gameContainer", "subzerobuild/geometrydash-subzero.json", {onProgress: UnityProgress});
 
     function UnityProgress(gameInstance, progress) {
         if (!gameInstance.Module) {
