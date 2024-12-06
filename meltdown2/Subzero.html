@@ -176,7 +176,7 @@ window.onbeforeunload = function(event) {
         t();
     };
 
-    var gameInstance = UnityLoader.instantiate("gameContainer", "subzeroold/geometrysubzero_sdk.json", {onProgress: UnityProgress});
+    var gameInstance = UnityLoader.instantiate("gameContainer", "geosub/geometrysubzero_sdk.json", {onProgress: UnityProgress});
 
     function UnityProgress(gameInstance, progress) {
         if (!gameInstance.Module) {
