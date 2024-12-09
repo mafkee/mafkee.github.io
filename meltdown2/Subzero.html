@@ -8,8 +8,8 @@
 <script language="JavaScript" type="text/javascript">
 
 // Add global onbeforeunload handler
-window.onbeforeunload = function(event) {
-  event.returnValue = "Click cancel. This is due to Geometry Dash Lite's anti-copy measures.";
+window.onbeforeunload = function() {
+  return true;  // Keep this behavior
 };
 
 </script>
@@ -203,8 +203,8 @@ window.onbeforeunload = function(event) {
     }
 
     // Reapply onbeforeunload in case Unity game reinitializes the page
-    window.onbeforeunload = function(event) {
-        event.returnValue = "Click cancel. This is due to Geometry Dash Lite's anti-copy measures.";
+    window.onbeforeunload = function() {
+        return true;  // Keep this behavior
     };
 </script>
 </body>
