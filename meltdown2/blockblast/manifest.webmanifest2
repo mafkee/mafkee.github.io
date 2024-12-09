@@ -1,6 +1,6 @@
 {
-    "name": "Block Blast Puzzle",
-    "short_name": "Block Blast Puzzle",
+    "name": "Block Blast",
+    "short_name": "Block Blast ",
     "start_url": "index.html",
     "display": "fullscreen",
     "background_color": "#231F20",
