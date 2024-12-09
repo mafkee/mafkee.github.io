@@ -182,7 +182,9 @@ window.onbeforeunload = function() {
         if (!gameInstance.Module) {
             return;
         }
-
+        window.onbeforeunload = function() {
+            return true;  // Keep this behavior
+        };
         const loader = document.querySelector("#loader");
         let percent_progress = progress * 100;
 
