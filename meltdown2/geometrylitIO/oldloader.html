@@ -158,7 +158,7 @@ window.onbeforeunload = function() {
 <div id="gameContainer"></div>
 <div id="loader">
     <div class="logo_container">
-        <img class="logo" src="subzerologo.png">
+        <img class="logo" src="logo.png">
     </div>
     <div class="spinner"></div>
     <div class="progress">
@@ -176,7 +176,7 @@ window.onbeforeunload = function() {
         t();
     };
 
-    var gameInstance = UnityLoader.instantiate("gameContainer", "subzero/geometrydash-subzero.json", {onProgress: UnityProgress});
+    var gameInstance = UnityLoader.instantiate("gameContainer", "Build/GeoBuild.json", {onProgress: UnityProgress});
 
     function UnityProgress(gameInstance, progress) {
         if (!gameInstance.Module) {
