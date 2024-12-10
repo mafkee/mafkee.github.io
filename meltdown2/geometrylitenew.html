@@ -176,7 +176,7 @@ window.onbeforeunload = function(event) {
         t();
     };
 
-    var gameInstance = UnityLoader.instantiate("gameContainer", "Build_v2/geometrylite.json", {onProgress: UnityProgress});
+    var gameInstance = UnityLoader.instantiate("gameContainer", "Build_v2/geometry-lite-v2.json", {onProgress: UnityProgress});
 
     function UnityProgress(gameInstance, progress) {
         if (!gameInstance.Module) {
