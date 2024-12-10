@@ -158,7 +158,7 @@ window.onbeforeunload = function() {
 <div id="gameContainer"></div>
 <div id="loader">
     <div class="logo_container">
-        <img class="logo" src="blockblast.jpeg">
+        <img class="logo" src="blockblastbuild/blockblast.jpeg">
     </div>
     <div class="spinner"></div>
     <div class="progress">
@@ -170,13 +170,13 @@ window.onbeforeunload = function() {
         </div>
     </div>
 </div>
-<script src="blockblastNew/UnityLoader.js"></script>
+<script src="blockblastbuild/UnityLoader.js"></script>
 <script>
     UnityLoader.compatibilityCheck = function (e, t, r) {
         t();
     };
 
-    var gameInstance = UnityLoader.instantiate("gameContainer", "blockblastNew/BlockBlast.json", {onProgress: UnityProgress});
+    var gameInstance = UnityLoader.instantiate("gameContainer", "blockblastbuild/BlockBlast.json", {onProgress: UnityProgress});
 
     function UnityProgress(gameInstance, progress) {
         if (!gameInstance.Module) {
