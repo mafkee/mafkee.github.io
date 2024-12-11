@@ -170,13 +170,13 @@ window.onbeforeunload = function(event) {
         </div>
     </div>
 </div>
-<script src="Build_v2/geometry-lite-v2.loader.js"></script>
+<script src="Build/UnityLoader.js"></script>
 <script>
     UnityLoader.compatibilityCheck = function (e, t, r) {
         t();
     };
 
-    var gameInstance = UnityLoader.instantiate("gameContainer", "Build_v2/geometry-lite.json", {onProgress: UnityProgress});
+    var gameInstance = UnityLoader.instantiate("gameContainer", "Build_v2/geometrylite.json", {onProgress: UnityProgress});
 
     function UnityProgress(gameInstance, progress) {
         if (!gameInstance.Module) {
