@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Geometry Dash Meltdown</title>
+<title>Geometry Dash Subzero</title>
 
 <script language="JavaScript" type="text/javascript">
 
 // Add global onbeforeunload handler
-window.onbeforeunload = function(event) {
-  event.returnValue = "Click cancel. This is due to Geometry Dash Lite's anti-copy measures.";
+window.onbeforeunload = function() {
+  return true;  // Keep this behavior
 };
 
 </script>
@@ -158,7 +158,7 @@ window.onbeforeunload = function(event) {
 <div id="gameContainer"></div>
 <div id="loader">
     <div class="logo_container">
-        <img class="logo" src="MeltdownLite/meltdown2.png">
+        <img class="logo" src="subzerologo.png">
     </div>
     <div class="spinner"></div>
     <div class="progress">
@@ -176,13 +176,15 @@ window.onbeforeunload = function(event) {
         t();
     };
 
-    var gameInstance = UnityLoader.instantiate("gameContainer", "Build_v2/geometrylite.json", {onProgress: UnityProgress});
+    var gameInstance = UnityLoader.instantiate("gameContainer", "buildv2/geometrylite.json", {onProgress: UnityProgress});
 
     function UnityProgress(gameInstance, progress) {
         if (!gameInstance.Module) {
             return;
         }
-
+        window.onbeforeunload = function() {
+            return true;  // Keep this behavior
+        };
         const loader = document.querySelector("#loader");
         let percent_progress = progress * 100;
 
@@ -203,8 +205,8 @@ window.onbeforeunload = function(event) {
     }
 
     // Reapply onbeforeunload in case Unity game reinitializes the page
-    window.onbeforeunload = function(event) {
-        event.returnValue = "Click cancel. This is due to Geometry Dash Lite's anti-copy measures.";
+    window.onbeforeunload = function() {
+        return true;  // Keep this behavior
     };
 </script>
 </body>
