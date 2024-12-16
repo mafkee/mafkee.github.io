@@ -5,11 +5,11 @@
     <meta name="description" content="Subway Surfers Classic game emulator">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <title>undertale</title>
-    <link rel="shortcut icon" href="/img/favicon.webp">
+    <link rel="shortcut icon" href="http://example.com/img/favicon.webp"> <!-- Use HTTP for favicon -->
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/core-game-site.css">
-    <link rel="stylesheet" href="/css/side-navigation.css">
-    <link rel="stylesheet" href="/css/skyscraper.css">
+    <link rel="stylesheet" href="http://example.com/css/core-game-site.css"> <!-- Use HTTP for CSS -->
+    <link rel="stylesheet" href="http://example.com/css/side-navigation.css"> <!-- Use HTTP for CSS -->
+    <link rel="stylesheet" href="http://example.com/css/skyscraper.css"> <!-- Use HTTP for CSS -->
 
     <style>
         /* Ensure the HTML and body take up the full screen */
@@ -34,7 +34,7 @@
 <body>
     <!-- Game Emulation -->
     <iframe id="gameFrame" 
-            src="http://testsite.cockium.cf/under/" 
+            src="http://testsite.cockium.cf/under" <!-- Use HTTP for the iframe src -->
             sandbox="allow-scripts allow-same-origin allow-pointer-lock" 
             scrolling="no" 
             frameborder="0"></iframe>
@@ -46,7 +46,7 @@
 
         iframe.onload = function() {
             // Ensure the iframe is focused and listen for mouse click inside the iframe to request pointer lock
-            iframe.contentWindow.document.body.addEventListener('click938290xenf9irhgiuefhjgiejn', function() {
+            iframe.contentWindow.document.body.addEventListener('click', function() {
                 try {
                     iframe.contentWindow.document.body.requestPointerLock();
                 } catch (e) {
