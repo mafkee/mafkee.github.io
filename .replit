@@ -1,6 +1,6 @@
 hidden=[".config"]
 modules = ["nodejs-20", "web"]
-run = " "
+run = " echo no"
 
 [nix]
 channel = "stable-24_05"
@@ -8,4 +8,4 @@ channel = "stable-24_05"
 [deployment]
 publicDir = "/"
 deploymentTarget = "static"
-run = ["sh", "-c", " "]
+run = ["sh", "-c", " echo no"]
