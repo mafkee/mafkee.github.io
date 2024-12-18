@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>wafkee</title>
+
+    <style>
+        /* Ensure the HTML and body take up the full screen */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Make the iframe fill the entire screen */
+        #gameFrame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0;
+        }
+
+        /* Style for the wayback machine-like help bar */
+        #helpBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        /* Image on the left */
+        #helpBar img {
+            height: 30px;
+            margin-left: 10px;
+        }
+
+        /* Placeholder text in the center */
+        #helpBar span {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* Optional: Adding some padding for the content */
+        body {
+            padding-top: 50px; /* to avoid content hiding under the help bar */
+        }
+    </style>
+</head>
+<body>
+    <!-- Wayback Machine-like Help Bar -->
+    <div id="helpBar">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Internet_Archive_logo_and_wordmark.svg/1200px-Internet_Archive_logo_and_wordmark.svg.png" alt="Help Bar Image">
+        <span>Placeholder Text - How can we assist you today?</span>
+    </div>
+    <!-- Game Emulation -->
+    <iframe id="gameFrame"
+            src="https://lmflorals.co.za/"
+            sandbox="allow-scripts allow-same-origin"
+            scrolling="yes"
+            frameborder="0"></iframe>
+    <!-- End Emulation -->
+
+    <script>
+        // Listen for when the iframe's content requests pointer lock
+        var iframe = document.getElementById('gameFrame');
+
+        iframe.onload = function() {
+            // Once the iframe is loaded, listen for mouse click inside the iframe to request pointer lock
+            iframe.contentWindow.document.body.addEventListener('click', function() {
+                try {
+                    iframe.contentWindow.document.body.requestPointerLock();
+                } catch (e) {
+                    console.error('Pointer Lock request failed:', e);
+                }
+            });
+        };
+
+        // Listen for pointer lock change events on the document to detect lock/unlock state
+        document.addEventListener('pointerlockchange', function() {
+            if (document.pointerLockElement === iframe.contentWindow.document.body) {
+                console.log('Pointer lock activated');
+            } else {
+                console.log('Pointer lock released');
+            }
+        });
+
+        // Optional: Automatically handle pointer lock release on ESC key press
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.exitPointerLock();
+            }
+        }, false);
+    </script>
+</body>
+</html>
