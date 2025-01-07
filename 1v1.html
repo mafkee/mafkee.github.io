@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>UnityLoader</title>
+   
+
+    <style>
+        /* Ensure the HTML and body take up the full screen */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Make the iframe fill the entire screen */
+        #gameFrame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Game Emulation -->
+    <iframe id="gameFrame"
+            src="http://gametest1.cockium.cf/1v1Test"
+            sandbox="allow-scripts allow-same-origin"
+            scrolling="yes"
+            frameborder="0"></iframe>
+    <!-- End Emulation -->
+
+    <script>
+        // Listen for when the iframe's content requests pointer lock
+        var iframe = document.getElementById('gameFrame');
+
+        iframe.onload = function() {
+            // Once the iframe is loaded, listen for mouse click inside the iframe to request pointer lock
+            iframe.contentWindow.document.body.addEventListener('click', function() {
+                try {
+                    iframe.contentWindow.document.body.requestPointerLock();
+                } catch (e) {
+                    console.error('Pointer Lock request failed:', e);
+                }
+            });
+        };
+
+        // Listen for pointer lock change events on the document to detect lock/unlock state
+        document.addEventListener('pointerlockchange', function() {
+            if (document.pointerLockElement === iframe.contentWindow.document.body) {
+                console.log('Pointer lock activated');
+            } else {
+                console.log('Pointer lock released');
+            }
+        });
+
+        // Optional: Automatically handle pointer lock release on ESC key press
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.exitPointerLock();
+            }
+        }, false);
+    </script>
+</body>
+</html>
