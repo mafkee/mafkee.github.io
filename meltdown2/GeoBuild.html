@@ -176,7 +176,7 @@ window.onbeforeunload = function() {
         t();
     };
 
-    var gameInstance = UnityLoader.instantiate("gameContainer", "GeoBuild/GeoBuild.json", {onProgress: UnityProgress});
+    var gameInstance = UnityLoader.instantiate("gameContainer", "geoold/geo.json", {onProgress: UnityProgress});
 
     function UnityProgress(gameInstance, progress) {
         if (!gameInstance.Module) {
