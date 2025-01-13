@@ -35,11 +35,14 @@
 
         /* Navigation container */
         .nav-container {
-            background: linear-gradient(to bottom, #000000, #434343);
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+            gap: 20px;
             padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom, #000000, #434343);
             border-radius: 10px;
-            width: 300px;
-            margin: 20px auto;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
@@ -47,10 +50,14 @@
         .nav-container a {
             color: white;
             display: block;
-            margin: 10px 0;
-            text-decoration: none;
+            text-align: center;
             font-weight: 600;
+            text-decoration: none;
             transition: background-color 0.3s, color 0.3s;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         /* Hover effect for links */
@@ -60,93 +67,175 @@
             text-decoration: underline;
         }
 
+        /* Game thumbnail images */
+        .game-thumbnail {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Footer Text */
+        footer {
+            color: white;
+            font-size: 14px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Overflow examples */
+        div.ex1, div.ex2, div.ex3, div.ex4, div.ex5 {
+            background-color: lightblue;
+            width: 110px;
+            height: 110px;
+        }
+
+        div.ex1 { overflow: scroll; }
+        div.ex2 { overflow: hidden; }
+        div.ex3 { overflow: auto; }
+        div.ex4 { overflow: clip; }
+        div.ex5 { overflow: visible; }
     </style>
-    <style>
-div.ex1 {
-  background-color: lightblue;
-  width: 110px;
-  height: 110px;
-  overflow: scroll;
-}
-
-div.ex2 {
-  background-color: lightblue;
-  width: 110px;
-  height: 110px;
-  overflow: hidden;
-}
-
-div.ex3 {
-  background-color: lightblue;
-  width: 110px;
-  height: 110px;
-  overflow: auto;
-}
-
-div.ex4 {
-  background-color: lightblue;
-  width: 110px;
-  height: 110px;
-  overflow: clip;
-}
-
-div.ex5 {
-  background-color: lightblue;
-  width: 110px;
-  height: 110px;
-  overflow: visible;
-}
-</style>
 </head>
 <body>
 <header>
     <h1>wafkee</h1>
-    <p>dont use wafkee anymore pls use mafkee.github.io instead, because wafkee uses an iframe it breaks games that use pointer lock.</p>
+    <p>how old is this text???</p>
+<p>version 204</p>
+    <p>click <a href="/new.html">here</a> for the music website </p>
+    <p>hi new layout is still a WIP, changes WILL happen </p>
 
-    <p>click <a href="/new.html">here</a> for music website </p>
-    <p>welcome BACK!!  >:333 i just slept the entir break ;_; </p>
+    <p>if the music website tells you "Download Now!" when you try to download a song, Please tell ME! I'm trying to fix this! </p>
 
-    <p>if the music website tells you "Download Now!" when you try to download a song, Please tell ME! im trying to fix this! </p>
+    <!-- Game links in grid layout with thumbnails -->
+    <div class="nav-container">
+        <a href="/SubwaySF/">
+            <img class="game-thumbnail" src="place.png" alt="Subway Surfers SF">
+            Subway Surfers: San Francisco
+        </a>
+        <a href="/1v1/index.html">
+            <img class="game-thumbnail" src="place.png" alt="1v1.lol">
+            1v1.lol
+        </a>
+        <a href="/SubwaySP/">
+            <img class="game-thumbnail" src="place.png" alt="Subway Surfers SP">
+            Subway Surfers: Saint Petersburg
+        </a>
+        <a href="/FruitNinjaClassic/">
+            <img class="game-thumbnail" src="place.png" alt="Fruit Ninja Classic">
+            Fruit Ninja Classic (2D)
+        </a>
+        <a href="/FruitNinja/">
+            <img class="game-thumbnail" src="place.png" alt="Fruit Ninja">
+            Fruit Ninja
+        </a>
+        <a href="/CutTheRope/">
+            <img class="game-thumbnail" src="place.png" alt="Cut The Rope">
+            Cut The Rope
+        </a>
+        <a href="/JetpackJoyride/">
+            <img class="game-thumbnail" src="place.png" alt="Jetpack Joyride">
+            Jetpack Joyride
+        </a>
+        <a href="/retrobowl.html">
+            <img class="game-thumbnail" src="place.png" alt="Retro Bowl">
+            Retro Bowl
+        </a>
+        <a href="/totm-main/">
+            <img class="game-thumbnail" src="place.png" alt="Tomb of the Mask">
+            Tomb Of The Mask
+        </a>
+        <a href="/Eag1.8.html">
+            <img class="game-thumbnail" src="place.png" alt="Minecraft/Eaglercraft">
+            Minecraft/Eaglercraft
+        </a>
+        <a href="/meltdown2/">
+            <img class="game-thumbnail" src="place.png" alt="Slope">
+            Slope
+        </a>
+        <a href="/pt/PizzaTower_GM2.html">
+            <img class="game-thumbnail" src="place.png" alt="Pizza Tower">
+            Pizza Tower (April 2021)
+        </a>
+        <a href="http://testsite.cockium.cf/under/">
+            <img class="game-thumbnail" src="place.png" alt="Undertale">
+            Undertale (External site)
+        </a>
+        <a href="/geometrysubzeronew.html">
+            <img class="game-thumbnail" src="place.png" alt="Geometry Dash Subzero">
+            Geometry Dash Subzero
+        </a>
+        <a href="/gba/">
+            <img class="game-thumbnail" src="place.png" alt="GBA">
+            GBA
+        </a>
+        <a href="/geometrymeltdownnew.html">
+            <img class="game-thumbnail" src="place.png" alt="Geometry Dash Meltdown">
+            Geometry Dash Meltdown
+        </a>
+        <a href="/geometrydashlite.html">
+            <img class="game-thumbnail" src="place.png" alt="Geometry Dash Lite">
+            Geometry Dash Lite (GeoDashUnity)
+        </a>
+        <a href="/geometrylitenew.html">
+            <img class="game-thumbnail" src="place.png" alt="Geometry Lite">
+            Geometry Lite (GeoLite2.5)
+        </a>
+        <a href="/dokutsu/">
+            <img class="game-thumbnail" src="place.png" alt="Cave Story">
+            Cave Story (Doukutsu Monogatari)
+        </a>
+        <a href="/AngryBirdsChrome-main/">
+            <img class="game-thumbnail" src="place.png" alt="Angry Birds Chrome">
+            Angry Birds Chrome
+        </a>
+        <a href="/fnaf.html">
+            <img class="game-thumbnail" src="place.png" alt="FnaF 1">
+            FnaF 1
+        </a>
+        <a href="/fnaf2.html">
+            <img class="game-thumbnail" src="place.png" alt="FnaF 2">
+            FnaF 2
+        </a>
+        <a href="/fnaf3.html">
+            <img class="game-thumbnail" src="place.png" alt="FnaF 3">
+            FnaF 3
+        </a>
+        <a href="/fnaf4.html">
+            <img class="game-thumbnail" src="place.png" alt="FnaF 4">
+            FnaF 4
+        </a>
+        <a href="/fnafw.html">
+            <img class="game-thumbnail" src="place.png" alt="FnaF World">
+            FnaF World
+        </a>
+        <a href="/fnafucn.html">
+            <img class="game-thumbnail" src="place.png" alt="FnaF Ultimate Custom Night">
+            FnaF Ultimate Custom Night
+        </a>
+        <a href="/tinyfishing.html">
+            <img class="game-thumbnail" src="place.png" alt="Tiny Fishing">
+            Tiny Fishing
+        </a>
+        <a href="/meltdown2/blockblast/">
+            <img class="game-thumbnail" src="place.png" alt="Block Blast">
+            Block Blast
+        </a>
+        <a href="/Marble.html">
+            <img class="game-thumbnail" src="place.png" alt="Marble Blast Ultra">
+            Marble Blast Ultra
+        </a>
+        <a href="/Snow-Rider3D-main/">
+            <img class="game-thumbnail" src="place.png" alt="Snow Rider 3D">
+            Snow Rider 3D
+        </a>
+    </div>
     
-     
- 
-<div class="nav-container">
-    <a href="/SubwaySF/">Subway Surfers: San Francisco</a>
-    <a href="/1v1/index.html">1v1.lol</a>
-  
-    <a href="/SubwaySP/">Subway Surfers: Saint Petersburg</a>
-    <a href="/FruitNinjaClassic/">Fruit Ninja Classic (2D)</a>
-    <a href="/FruitNinja/">Fruit Ninja</a>
-    <a href="/CutTheRope/">Cut The Rope</a>
-    <a href="/JetpackJoyride/">Jetpack Joyride</a>
-    <a href="/retrobowl.html">Retro Bowl</a>
-     <a href="/totm-main/">Tomb Of The Mask</a>
-     <a href="/Eag1.8.html"> Minecraft/Eaglercraft </a>
-    <a href="/meltdown2/">Slope</a>
-      <a href="/pt/PizzaTower_GM2.html">Pizza Tower (april 2021)</a>
-     <a href="http://testsite.cockium.cf/under/">Undertale (THE FULL GAME) (will take you to a extrernal site)</a>
-    <a href="/geometrysubzeronew.html">Geometry Dash Subzero </a>
-    <a href="/gba/">GBA</a>
-    <a href="/geometrymeltdownnew.html">Geometry Dash Meltdown</a>
-    <a href="/geometrydashlite.html">Geometry Dash Lite (GeoDashUnity)</a>
-     <a href="/geometrylitenew.html">Geometry Lite (GeoLite2.5) (no icon kit)</a>
-    <a href="/dokutsu/">Cave Story (Doukutsu Monogatari)</a>
-    <a href="/AngryBirdsChrome-main/">Angry Birds Chrome</a>
-     <a href="/fnaf.html">FnaF 1</a>
-       <a href="/fnaf2.html">FnaF 2</a>
-       <a href="/fnaf3.html">FnaF 3</a>
-       <a href="/fnaf4.html">FnaF 4</a>
-       <a href="/fnafw.html">FnaF World</a>
-    <a href="/fnafucn.html">FnaF Ultimate Custom Night</a>
-     <a href="/tinyfishing.html">Tiny Fishing (SAVING DOESNT WORK FIXING LATER!)</a>
-     <a href="/meltdown2/blockblast/">Block Blast</a>
-     <a href="/Marble.html">Marble Blast Ultra</a>
-     <a href="/Snow-Rider3D-main/">Snow Rider 3D</a>
-
-
-  <p>iphone 6 leak </p> <img src="https://th.bing.com/th/id/OIP.w9q2L051JeTq9pkbbg7l9QHaFj?w=232&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="hi"> </header>
-
-</div>
-
+    <footer>
+        <p>i be like,, :3 everyday, Remind me to make this text random
+        </p>
+    </footer>
+</header>
 </body>
 </html>
