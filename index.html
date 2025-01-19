@@ -17,20 +17,27 @@
             color: white;
         }
 
-        /* Moving background effect */
-        @keyframes moveBackground {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 0%; }
-        }
-
-        /* Apply the moving background to the page */
+        /* Header styles with animated background */
         header {
-            background: linear-gradient(45deg, #000000, #434343);
-            background-size: 200% 100%;
-            animation: moveBackground 10s linear infinite;
+            height: auto;
             padding: 60px 0;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            background-repeat: repeat;
+            background-size: auto; /* Keep the pixel art's original resolution */
+            animation: moveBackground 30s linear infinite; /* Animation for scrolling */
+            position: relative;
+            transition: background-image 1s ease-in-out; /* Smooth fade-in effect */
+        }
+
+        /* Background animation */
+        @keyframes moveBackground {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: -1000px 0; /* Adjust based on image size */
+            }
         }
 
         /* Navigation container */
@@ -41,7 +48,7 @@
             padding: 20px;
             max-width: 900px;
             margin: 0 auto;
-            background: linear-gradient(to bottom, #000000, #434343);
+            background: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
@@ -83,35 +90,20 @@
             margin-top: 20px;
             text-align: center;
         }
-
-        /* Overflow examples */
-        div.ex1, div.ex2, div.ex3, div.ex4, div.ex5 {
-            background-color: lightblue;
-            width: 110px;
-            height: 110px;
-        }
-
-        div.ex1 { overflow: scroll; }
-        div.ex2 { overflow: hidden; }
-        div.ex3 { overflow: auto; }
-        div.ex4 { overflow: clip; }
-        div.ex5 { overflow: visible; }
     </style>
 </head>
 <body>
-<header>
-    <img src="icon/newlogo.png" alt="The." >
-    <p>how old is this text???</p>
-<p>version 206 fix 1</p>
-    <p>click <a href="/new.html">here</a> for the music website PLEASE! IGNORE THE "youve got a virus" ads in the music website!, this is because i am iframing a yt2mp3 website! this is basically normal!!! please!!! understand i cant make my own!!, THANK YOU! </p>
-    <p>hi new layout is still a WIP, changes WILL happen </p>
-        <p>fixed tiny fishing</p>
+<header id="dynamic-background">
+    <img src="icon/newlogo.png" alt="The.">
 
+    <p>do u people like the new background, it also changes eveyr 60 seconds!!! </p>
+      <p>FLASH GAMES!!!  EHSYGIG  YEAHHHHH pls tell me what games or webcomics or flash stuff you want , form soon!</p>
+    <p>click <a href="/new.html">here</a> for the music website PLEASE! IGNORE THE "youve got a virus" ads in the music website!, this is because i am iframing a yt2mp3 website! this is basically normal!!! please!!! understand i cant make my own!!, THANK YOU! </p>
 
 
     <!-- Game links in grid layout with thumbnails -->
     <div class="nav-container">
-        <a href="/SubwaySF/">
+       <a href="/SubwaySF/">
             <img class="game-thumbnail" src="icon/SF.jpeg" alt="Subway Surfers SF">
             Subway Surfers: San Francisco
         </a>
@@ -163,17 +155,21 @@
         <a href="/pt/PizzaTower_GM2.html">
             <img class="game-thumbnail" src="/icon/pizzatower.png" alt="Pizza Tower">
             Pizza Tower (April 2021)
-    
+
         </a>    
         <a href="/gba/">
             <img class="game-thumbnail" src="icon/gba.png" alt="GBA">
             GBA
         </a>
+   <a href="/flash/">
+            <img class="game-thumbnail" src="flash/flash,png" alt="GBA">
+            Flash 
+        </a>
         <a href="/geometrylauncher.html">
             <img class="game-thumbnail" src="icon/geometrydash.jpeg" alt="Geometry Dash Meltdown">
             Geometry Dash (ALL THE SPINOFFS)
         </a>
-       
+
         <a href="/dokutsu/">
             <img class="game-thumbnail" src="icon/cave.png" alt="Cave Story">
             Cave Story (Doukutsu Monogatari)
@@ -223,11 +219,26 @@
             Snow Rider 3D
         </a>
     </div>
-    
+
     <footer>
-        <p>i be like,, :3 everyday, Remind me to make this text random
-        </p>
+        <p>i be like,, :3 everyday, Remind me to make this text random</p>
     </footer>
 </header>
+
+<script>
+    // JavaScript for alternating the background image with a fade effect
+    const header = document.getElementById('dynamic-background');
+    const images = ['bg1.png', 'bg2.png'];
+    let currentIndex = 0;
+
+    function changeBackgroundImage() {
+        header.style.backgroundImage = `url('${images[currentIndex]}')`;
+        currentIndex = (currentIndex + 1) % images.length; // Toggle between bg1.png and bg2.png
+    }
+
+    // Set the initial background image and start the interval
+    changeBackgroundImage();
+    setInterval(changeBackgroundImage, 60000); // Change every 60 seconds
+</script>
 </body>
 </html>
