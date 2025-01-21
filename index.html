@@ -12,19 +12,11 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #111;
             color: white;
-        }
-
-        header {
-            height: auto;
-            padding: 60px 0;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            background-color: #111;
             background-repeat: repeat;
             background-size: auto;
             animation: moveBackground 30s linear infinite;
-            position: relative;
             transition: background-image 1s ease-in-out;
         }
 
@@ -37,6 +29,15 @@
             }
         }
 
+        header {
+            height: auto;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            background: none; /* Remove header background */
+        }
+
         .nav-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -44,9 +45,8 @@
             padding: 20px;
             max-width: 900px;
             margin: 0 auto;
-            background: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Optional: keep the shadow for depth */
         }
 
         .nav-container a {
@@ -200,121 +200,118 @@
 </header>
 
 <div class="nav-container">
-     <a href="/SubwaySF/">
-            <img class="game-thumbnail" src="icon/SF.jpeg" alt="Subway Surfers SF">
-            Subway Surfers: San Francisco
-        </a>
-        <a href="/1v1/index.html">
-            <img class="game-thumbnail" src="icon/1v1logonew.png" alt="1v1.lol">
-            1v1.lol
-        </a>
-        <a href="/SubwaySP/">
-            <img class="game-thumbnail" src="icon/FourthAvatar.webp" alt="Subway Surfers SP">
-            Subway Surfers: Saint Petersburg
-        </a>
-        <a href="/FruitNinjaClassic/">
-            <img class="game-thumbnail" src="icon/fruitninjaold.jpg" alt="Fruit Ninja Classic">
-            Fruit Ninja Classic (2D)
-        </a>
-        <a href="/FruitNinja/">
-            <img class="game-thumbnail" src="icon/fruitninjanew.jpeg" alt="Fruit Ninja">
-            Fruit Ninja HD
-        </a>
-        <a href="/CutTheRope/">
-            <img class="game-thumbnail" src="icon/cuttherope.avif" alt="Cut The Rope">
-            Cut The Rope
-        </a>
-        <a href="/JetpackJoyride/">
-            <img class="game-thumbnail" src="icon/jetpackjoyride.png" alt="Jetpack Joyride">
-            Jetpack Joyride
-        </a>
-        <a href="/retrobowl.html">
-            <img class="game-thumbnail" src="/icon/retrobowl.jpg" alt="Retro Bowl">
-            Retro Bowl
-        </a>
-        </a>
-        <a href="/smrpg/">
-            <img class="game-thumbnail" src="icon/rpgicon.png" alt="Mario Rpg">
-            Super Mario RPG
-        </a>
-        <a href="/totm-main/">
-            <img class="game-thumbnail" src="/icon/totm.png" alt="Tomb of the Mask">
-            Tomb Of The Mask
-        </a>
-        <a href="/Eag1.8.html">
-            <img class="game-thumbnail" src="icon//mineicon.jpg" alt="Minecraft/Eaglercraft">
-            Minecraft/Eaglercraft
-        </a>
-        <a href="/meltdown2/">
-            <img class="game-thumbnail" src="/icon/properslopelogo.png" alt="Slope">
-            Slope
-        </a>
-        <a href="/pt/PizzaTower_GM2.html">
-            <img class="game-thumbnail" src="/icon/pizzatower.png" alt="Pizza Tower">
-            Pizza Tower (April 2021)
-
-        </a>    
-        <a href="/gba/">
-            <img class="game-thumbnail" src="icon/gba.png" alt="GBA">
-            GBA
-        </a>
-   <a href="/flashlauncher.html">
-            <img class="game-thumbnail" src="flash/flash.png" alt="flash">
-            Flash Games
-        </a>
-        <a href="/geometrylauncher.html">
-            <img class="game-thumbnail" src="icon/geometrydash.jpeg" alt="Geometry Dash Meltdown">
-            Geometry Dash (ALL THE SPINOFFS)
-        </a>
-
-        <a href="/dokutsu/">
-            <img class="game-thumbnail" src="icon/cave.png" alt="Cave Story">
-            Cave Story (Doukutsu Monogatari)
-        </a>
-        <a href="/AngryBirdsChrome-main/">
-            <img class="game-thumbnail" src="icon/abicon.webp" alt="Angry Birds Chrome">
-            Angry Birds Chrome
-        </a>
-        <a href="/fnaf.html">
-            <img class="game-thumbnail" src="icon/fnaf1icon.jpeg" alt="FnaF 1">
-            FnaF 1
-        </a>
-        <a href="/fnaf2.html">
-            <img class="game-thumbnail" src="icon/fnaf2icon.jpeg" alt="FnaF 2">
-            FnaF 2
-        </a>
-        <a href="/fnaf3.html">
-            <img class="game-thumbnail" src="icon/fnaf3icon.jpg" alt="FnaF 3">
-            FnaF 3
-        </a>
-        <a href="/fnaf4.html">
-            <img class="game-thumbnail" src="icon/fnaf4icon.webp" alt="FnaF 4">
-            FnaF 4
-        </a>
-        <a href="/fnafw.html">
-            <img class="game-thumbnail" src="icon/fnafworldicon.png" alt="FnaF World">
-            FnaF World
-        </a>
-        <a href="/fnafucn.html">
-            <img class="game-thumbnail" src="icon/fnafuncicon.webp" alt="FnaF Ultimate Custom Night">
-            FnaF Ultimate Custom Night
-        </a>
-        <a href="/tinyfish/">
-            <img class="game-thumbnail" src="/icon/thumb.png" alt="Tiny Fishing">
-            Tiny Fishing
-        </a>
-        <a href="/meltdown2/blockblast/">
-            <img class="game-thumbnail" src="icon/blockblast.jpeg" alt="Block Blast">
-            Block Blast
-        </a>
-        <a href="/Marble.html">
-            <img class="game-thumbnail" src="icon/marble.png" alt="Marble Blast Ultra">
-            Marble Blast Ultra
-        </a>
-        <a href="/Snow-Rider3D-main/">
-            <img class="game-thumbnail" src="icon/snowrider.png" alt="Snow Rider 3D">
-            Snow Rider 3D
-        </a>
+    <a href="/SubwaySF/">
+        <img class="game-thumbnail" src="icon/SF.jpeg" alt="Subway Surfers SF">
+        Subway Surfers: San Francisco
+    </a>
+    <a href="/1v1/index.html">
+        <img class="game-thumbnail" src="icon/1v1logonew.png" alt="1v1.lol">
+        1v1.lol
+    </a>
+    <a href="/SubwaySP/">
+        <img class="game-thumbnail" src="icon/FourthAvatar.webp" alt="Subway Surfers SP">
+        Subway Surfers: Saint Petersburg
+    </a>
+    <a href="/FruitNinjaClassic/">
+        <img class="game-thumbnail" src="icon/fruitninjaold.jpg" alt="Fruit Ninja Classic">
+        Fruit Ninja Classic (2D)
+    </a>
+    <a href="/FruitNinja/">
+        <img class="game-thumbnail" src="icon/fruitninjanew.jpeg" alt="Fruit Ninja">
+        Fruit Ninja HD
+    </a>
+    <a href="/CutTheRope/">
+        <img class="game-thumbnail" src="icon/cuttherope.avif" alt="Cut The Rope">
+        Cut The Rope
+    </a>
+    <a href="/JetpackJoyride/">
+        <img class="game-thumbnail" src="icon/jetpackjoyride.png" alt="Jetpack Joyride">
+        Jetpack Joyride
+    </a>
+    <a href="/retrobowl.html">
+        <img class="game-thumbnail" src="/icon/retrobowl.jpg" alt="Retro Bowl">
+        Retro Bowl
+    </a>
+    <a href="/smrpg/">
+        <img class="game-thumbnail" src="icon/rpgicon.png" alt="Mario Rpg">
+        Super Mario RPG
+    </a>
+    <a href="/totm-main/">
+        <img class="game-thumbnail" src="/icon/totm.png" alt="Tomb of the Mask">
+        Tomb Of The Mask
+    </a>
+    <a href="/Eag1.8.html">
+        <img class="game-thumbnail" src="icon//mineicon.jpg" alt="Minecraft/Eaglercraft">
+        Minecraft/Eaglercraft
+    </a>
+    <a href="/meltdown2/">
+        <img class="game-thumbnail" src="/icon/properslopelogo.png" alt="Slope">
+        Slope
+    </a>
+    <a href="/pt/PizzaTower_GM2.html">
+        <img class="game-thumbnail" src="/icon/pizzatower.png" alt="Pizza Tower">
+        Pizza Tower (April 2021)
+    </a>
+    <a href="/gba/">
+        <img class="game-thumbnail" src="icon/gba.png" alt="GBA">
+        GBA
+    </a>
+    <a href="/flashlauncher.html">
+        <img class="game-thumbnail" src="flash/flash.png" alt="flash">
+        Flash Games
+    </a>
+    <a href="/geometrylauncher.html">
+        <img class="game-thumbnail" src="icon/geometrydash.jpeg" alt="Geometry Dash Meltdown">
+        Geometry Dash (ALL THE SPINOFFS)
+    </a>
+    <a href="/dokutsu/">
+        <img class="game-thumbnail" src="icon/cave.png" alt="Cave Story">
+        Cave Story (Doukutsu Monogatari)
+    </a>
+    <a href="/AngryBirdsChrome-main/">
+        <img class="game-thumbnail" src="icon/abicon.webp" alt="Angry Birds Chrome">
+        Angry Birds Chrome
+    </a>
+    <a href="/fnaf.html">
+        <img class="game-thumbnail" src="icon/fnaf1icon.jpeg" alt="FnaF 1">
+        FnaF 1
+    </a>
+    <a href="/fnaf2.html">
+        <img class="game-thumbnail" src="icon/fnaf2icon.jpeg" alt="FnaF 2">
+        FnaF 2
+    </a>
+    <a href="/fnaf3.html">
+        <img class="game-thumbnail" src="icon/fnaf3icon.jpg" alt="FnaF 3">
+        FnaF 3
+    </a>
+    <a href="/fnaf4.html">
+        <img class="game-thumbnail" src="icon/fnaf4icon.webp" alt="FnaF 4">
+        FnaF 4
+    </a>
+    <a href="/fnafw.html">
+        <img class="game-thumbnail" src="icon/fnafworldicon.png" alt="FnaF World">
+        FnaF World
+    </a>
+    <a href="/fnafucn.html">
+        <img class="game-thumbnail" src="icon/fnafuncicon.webp" alt="FnaF Ultimate Custom Night">
+        FnaF Ultimate Custom Night
+    </a>
+    <a href="/tinyfish/">
+        <img class="game-thumbnail" src="/icon/thumb.png" alt="Tiny Fishing">
+        Tiny Fishing
+    </a>
+    <a href="/meltdown2/blockblast/">
+        <img class="game-thumbnail" src="icon/blockblast.jpeg" alt="Block Blast">
+        Block Blast
+    </a>
+    <a href="/Marble.html">
+        <img class="game-thumbnail" src="icon/marble.png" alt="Marble Blast Ultra">
+        Marble Blast Ultra
+    </a>
+    <a href="/Snow-Rider3D-main/">
+        <img class="game-thumbnail" src="icon/snowrider.png" alt="Snow Rider 3D">
+        Snow Rider 3D
+    </a>
 </div>
 
 <footer>
@@ -332,7 +329,7 @@
     let customImages = JSON.parse(localStorage.getItem('customImages')) || ['bg1new.png', 'bg2new.png', 'bg3new.png', 'bg2.png', 'bg1.png'];
 
     function setTheme(image) {
-        header.style.backgroundImage = `url('${image}')`;
+        document.body.style.backgroundImage = `url('${image}')`;
         localStorage.setItem('selectedTheme', image);
     }
 
@@ -352,7 +349,7 @@
     function loadTheme() {
         const savedTheme = localStorage.getItem('selectedTheme');
         if (savedTheme) {
-            header.style.backgroundImage = `url('${savedTheme}')`;
+            document.body.style.backgroundImage = `url('${savedTheme}')`;
         } else {
             setTheme(customImages[0]);
         }
