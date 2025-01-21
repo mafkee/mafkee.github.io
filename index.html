@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* Global body styles */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
@@ -17,33 +16,30 @@
             color: white;
         }
 
-        /* Header styles with animated background */
         header {
             height: auto;
             padding: 60px 0;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             background-repeat: repeat;
-            background-size: auto; /* Keep the pixel art's original resolution */
-            animation: moveBackground 30s linear infinite; /* Animation for scrolling */
+            background-size: auto;
+            animation: moveBackground 30s linear infinite;
             position: relative;
-            transition: background-image 1s ease-in-out; /* Smooth fade-in effect */
+            transition: background-image 1s ease-in-out;
         }
 
-        /* Background animation */
         @keyframes moveBackground {
             from {
                 background-position: 0 0;
             }
             to {
-                background-position: -1000px 0; /* Adjust based on image size */
+                background-position: -1000px 0;
             }
         }
 
-        /* Navigation container */
         .nav-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 20px;
             padding: 20px;
             max-width: 900px;
@@ -53,7 +49,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        /* Navigation links */
         .nav-container a {
             color: white;
             display: block;
@@ -67,14 +62,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
-        /* Hover effect for links */
         .nav-container a:hover {
             background-color: #555;
             color: #FFD700;
             text-decoration: underline;
         }
 
-        /* Game thumbnail images */
         .game-thumbnail {
             width: 100%;
             height: 150px;
@@ -83,12 +76,80 @@
             margin-bottom: 10px;
         }
 
-        /* Footer Text */
         footer {
             color: white;
             font-size: 14px;
             margin-top: 20px;
             text-align: center;
+        }
+
+        .theme-selector {
+            display: none;
+            margin: 20px auto;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+
+        .theme-selector input {
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .theme-selector button {
+            padding: 10px 20px;
+            font-weight: bold;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .theme-selector button:hover {
+            background-color: #555;
+        }
+
+        .theme-button {
+            margin: 20px auto;
+            display: block;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: white;
+            background-color: #444;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .theme-button:hover {
+            background-color: #666;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .custom-upload {
+            padding: 10px 20px;
+            font-weight: bold;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .custom-upload:hover {
+            background-color: #555;
         }
     </style>
 </head>
@@ -96,16 +157,50 @@
 <header id="dynamic-background">
     <img src="icon/newlogo.png" alt="The.">
 
-    <p>THEME SYSTEM SOON!!!</p>
-    
-      <p>FLASH GAMES!!!  EHSYGIG  YEAHHHHH pls tell me what games or webcomics or flash stuff you want , form soon!</p>
-    
-    <p>click <a href="/new.html">here</a> for the music website The thing is about to be discontuned. </p>
+    <p>theme system is WIP</p>
+    <p>flash games are OUT!!! suggest webcomics/games 4 me to add!!</p>
 
+    <button class="theme-button" id="theme-button" onclick="toggleThemeSelector()">Change Theme</button>
 
-    <!-- Game links in grid layout with thumbnails -->
-    <div class="nav-container">
-       <a href="/SubwaySF/">
+    <div class="theme-selector" id="theme-selector">
+        <h3>select or upload backgrounds</h3>
+
+        <label>
+            <input type="checkbox" id="toggle-background-change" onchange="toggleCustomSlots()"> enable custom backgrounds (these will change every 60 seconds, however if you only put one it will not change.)
+        </label>
+
+        <div id="default-options">
+            <button onclick="setTheme('bg1new.png')">night</button>
+            <button onclick="setTheme('bg2new.png')">cloudy</button>
+            <button onclick="setTheme('bg3new.png')">rain</button>
+            <button onclick="setTheme('bg2.png')">petscop colors</button>
+            <button onclick="setTheme('bg1.png')">doodles</button>
+        </div>
+
+        <div id="custom-slots" class="hidden">
+            <label class="custom-upload">slot 1
+                <input class="file-input" type="file" onchange="uploadImage(event, 0)">
+            </label>
+            <label class="custom-upload">slot 2
+                <input class="file-input" type="file" onchange="uploadImage(event, 1)">
+            </label>
+            <label class="custom-upload">slot 3
+                <input class="file-input" type="file" onchange="uploadImage(event, 2)">
+            </label>
+            <label class="custom-upload">slot 4
+                <input class="file-input" type="file" onchange="uploadImage(event, 3)">
+            </label>
+            <label class="custom-upload">slot 5
+                <input class="file-input" type="file" onchange="uploadImage(event, 4)">
+            </label>
+        </div>
+    </div>
+
+    <p>click <a href="/new.html">here</a> for the music website The thing is about to be discontinued.</p>
+</header>
+
+<div class="nav-container">
+     <a href="/SubwaySF/">
             <img class="game-thumbnail" src="icon/SF.jpeg" alt="Subway Surfers SF">
             Subway Surfers: San Francisco
         </a>
@@ -220,27 +315,63 @@
             <img class="game-thumbnail" src="icon/snowrider.png" alt="Snow Rider 3D">
             Snow Rider 3D
         </a>
-    </div>
+</div>
 
-    <footer>
-        <p>i be like,, :3 everyday, Remind me to make this text random</p>
-    </footer>
-</header>
+<footer>
+    <p>i be like,, :3 everyday, Remind me to make this text random</p>
+</footer>
 
 <script>
-    // JavaScript for alternating the background image with a fade effect
     const header = document.getElementById('dynamic-background');
-    const images = ['bg1new.png', 'bg2new.png', 'bg3new.png', 'bg2.png', 'bg1.png'];
-    let currentIndex = 0;
+    const themeSelector = document.getElementById('theme-selector');
+    const themeButton = document.getElementById('theme-button');
+    const defaultOptions = document.getElementById('default-options');
+    const customSlots = document.getElementById('custom-slots');
+    const toggleBackgroundChangeCheckbox = document.getElementById('toggle-background-change');
 
-    function changeBackgroundImage() {
-        header.style.backgroundImage = `url('${images[currentIndex]}')`;
-        currentIndex = (currentIndex + 1) % images.length; // Toggle between bg1.png and bg2.png
+    let customImages = JSON.parse(localStorage.getItem('customImages')) || ['bg1new.png', 'bg2new.png', 'bg3new.png', 'bg2.png', 'bg1.png'];
+
+    function setTheme(image) {
+        header.style.backgroundImage = `url('${image}')`;
+        localStorage.setItem('selectedTheme', image);
     }
 
-    // Set the initial background image and start the interval
-    changeBackgroundImage();
-    setInterval(changeBackgroundImage, 60000); // Change every 60 seconds
+    function uploadImage(event, slot) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                customImages[slot] = e.target.result;
+                localStorage.setItem('customImages', JSON.stringify(customImages));
+                setTheme(e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function loadTheme() {
+        const savedTheme = localStorage.getItem('selectedTheme');
+        if (savedTheme) {
+            header.style.backgroundImage = `url('${savedTheme}')`;
+        } else {
+            setTheme(customImages[0]);
+        }
+    }
+
+    function toggleThemeSelector() {
+        themeSelector.style.display = themeSelector.style.display === 'none' || themeSelector.style.display === '' ? 'block' : 'none';
+    }
+
+    function toggleCustomSlots() {
+        if (toggleBackgroundChangeCheckbox.checked) {
+            customSlots.classList.remove('hidden');
+        } else {
+            customSlots.classList.add('hidden');
+        }
+    }
+
+    loadTheme();
+    toggleCustomSlots();
 </script>
 </body>
 </html>
