@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Geometry Dash Breeze</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="iframe1" src=""></iframe>
+
+    <script>
+        // Load URL into the iframe
+        function loadUrlInIframe(url) {
+            const iframe = document.getElementById('iframe1');
+            iframe.src = url;
+
+            // Update the browser address bar
+            const encodedUrl = encodeURIComponent(url);
+            const newUrl = `${window.location.pathname}?URL=${encodedUrl}`;
+            window.history.pushState({ path: newUrl }, '', newUrl);
+        }
+
+        // Handle query string ?URL=...
+        function handleQueryString() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const url = urlParams.get('URL');
+            if (url) {
+                const decodedUrl = decodeURIComponent(url);
+                loadUrlInIframe(decodedUrl);
+            }
+        }
+
+        // Initialize the page by handling any query string parameters
+        handleQueryString();
+    </script>
+</body>
+</html>
